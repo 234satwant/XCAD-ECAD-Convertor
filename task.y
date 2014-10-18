@@ -73,29 +73,29 @@ void yyerror(const char *s);
 // make a real one shortly:
 bison:
 	|
-	SPHERE open point length close bison{fputs("Sphere is here",output);}
+	SPHERE open point length close bison{fputs("ball",output);}
 	| CYLINDER open point point length close bison{fputs("Cylinder sells like shells ",output);}
 	| BOX open length length length point angle close bison{fputs("Box the faux",output);}
 	;
 open:
-	OPEN STRING {sprintf(buffer,"Named %d ",$1);fputs(buffer,output);}
+	OPEN STRING {sprintf(buffer,"{ %s ",$2);fputs(buffer,output);}
 	;	
 close:
-	STRING CLOSE {sprintf(buffer,"Witha hue of %d",$1);fputs(buffer,output);}
+	STRING CLOSE {sprintf(buffer," %s }",$1);fputs(buffer,output);}
 	;
 point:	
 	number number number {fputs(" Points \t",output);}
 	;
 angle:
-	number {fputs("Angles \t",output);}
+	number {fputs("",output);}
 	;	
 	;
 length:
-	number {fputs("Length \t",output);}
+	number {fputs("",output);}
 	;
 number:
-	INT { sprintf(buffer,"%d",$1);;fputs(buffer,output);bzero(buffer,100);}
-	| FLOAT { sprintf(buffer,"%d",$1);fputs(buffer,output);bzero(buffer,100);}
+	INT { sprintf(buffer,"%d ",$1);;fputs(buffer,output);bzero(buffer,100);}
+	| FLOAT { sprintf(buffer,"%f ",$1);fputs(buffer,output);bzero(buffer,100);}
 	;
 
 %%

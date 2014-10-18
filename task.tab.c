@@ -1248,7 +1248,7 @@ yyreduce:
     {
         case 3:
 #line 76 "task.y" /* yacc.c:1646  */
-    {fputs("Sphere is here",output);}
+    {fputs("ball",output);}
 #line 1253 "task.tab.c" /* yacc.c:1646  */
     break;
 
@@ -1266,13 +1266,13 @@ yyreduce:
 
   case 6:
 #line 81 "task.y" /* yacc.c:1646  */
-    {sprintf(buffer,"Named %d ",(yyvsp[-1].brace));fputs(buffer,output);}
+    {sprintf(buffer,"{ %s ",(yyvsp[0].sval));fputs(buffer,output);}
 #line 1271 "task.tab.c" /* yacc.c:1646  */
     break;
 
   case 7:
 #line 84 "task.y" /* yacc.c:1646  */
-    {sprintf(buffer,"Witha hue of %d",(yyvsp[-1].sval));fputs(buffer,output);}
+    {sprintf(buffer," %s }",(yyvsp[-1].sval));fputs(buffer,output);}
 #line 1277 "task.tab.c" /* yacc.c:1646  */
     break;
 
@@ -1284,25 +1284,25 @@ yyreduce:
 
   case 9:
 #line 90 "task.y" /* yacc.c:1646  */
-    {fputs("Angles \t",output);}
+    {fputs("",output);}
 #line 1289 "task.tab.c" /* yacc.c:1646  */
     break;
 
   case 10:
 #line 94 "task.y" /* yacc.c:1646  */
-    {fputs("Length \t",output);}
+    {fputs("",output);}
 #line 1295 "task.tab.c" /* yacc.c:1646  */
     break;
 
   case 11:
 #line 97 "task.y" /* yacc.c:1646  */
-    { sprintf(buffer,"%d",(yyvsp[0].ival));;fputs(buffer,output);bzero(buffer,100);}
+    { sprintf(buffer,"%d ",(yyvsp[0].ival));;fputs(buffer,output);bzero(buffer,100);}
 #line 1301 "task.tab.c" /* yacc.c:1646  */
     break;
 
   case 12:
 #line 98 "task.y" /* yacc.c:1646  */
-    { sprintf(buffer,"%d",(yyvsp[0].fval));fputs(buffer,output);bzero(buffer,100);}
+    { sprintf(buffer,"%f ",(yyvsp[0].fval));fputs(buffer,output);bzero(buffer,100);}
 #line 1307 "task.tab.c" /* yacc.c:1646  */
     break;
 
