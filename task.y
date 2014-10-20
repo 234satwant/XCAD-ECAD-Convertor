@@ -66,11 +66,7 @@ void yyerror(const char *s);
 %token BOX
 %%
 
-// this is the actual grammar that bison will parse, but for right now it's just
 
-// something silly to echo to the screen what bison gets from flex.  We'll
-
-// make a real one shortly:
 bison:
 	|
 	SPHERE open point length close bison{fputs("ball",output);}
